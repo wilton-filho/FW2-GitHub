@@ -1,0 +1,14 @@
+label {
+	font-weight:bold;
+}
+
+input[type=text] {
+	width:100px;
+	transition: all 1s;
+}
+
+input[type=text]:focus {
+	border:2px solid blue;
+	background-color:yellow;
+	width:240px;
+}

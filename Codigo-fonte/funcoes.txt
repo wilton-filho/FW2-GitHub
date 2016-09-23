@@ -1,0 +1,3 @@
+function dado(limiteInf, limiteSup) {
+        return parseInt(Math.random()*(limiteSup-limiteInf)+limiteInf + 0.5);
+    }

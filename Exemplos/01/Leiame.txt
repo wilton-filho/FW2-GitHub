@@ -1,0 +1,14 @@
+Este exemplo mostra uma aplicação simples, porém completa, contendo arquivos front-end (html, css e js) e back-end (php e banco de dados). Através deste exemplo será explicado o conceito de front-end e back-end.
+
+Dados do banco:
+Servidor: localhost
+BD: wiltonpf_aulaFW2
+User:profFW2
+Senha:@ula_fw2
+
+Tabela: 
+	aluno
+Campos:
+	Nome (varchar)
+	Matricula (integer)
+	Nota (float)
