@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script>
+            
+            //---------------------------
+            // 0: Numero
+            // 1: Letras
+            // 2: Numero + letras
+            function validarTipo(tipo, valor) {
+                var padrao;
+                switch(tipo) {
+                    case 0:  // Numero
+                        padrao = /^\d{1,}$/;
+                    break;
+                    case 1:  // Letras
+                        padrao = /^[a-zA-Z]{1,}$/;
+                    break;
+                    case 2:  // Numeros + letras
+                        padrao = /^[0-9a-z,.]{1,}$/i;
+                    break;
+                }
+                return(padrao.test(valor));
+            }
+            
+            function validarCampo() {
+                var campo, i, qtdTxt = document.getElementsByTagName("input").length;
+                var valor, cont = 0;
+                for (i=0; i<qtdTxt; i++) {
+                    nome = document.getElementsByTagName("input")[i].name;
+                    id = document.getElementsByTagName("input")[i].id;
+                    if (document.getElementsByTagName("input")[i].type == "text") {
+                        valor = document.getElementsByTagName("input")[i].value;
+                        valor = document.getElementsByTagName("input")[i].value;
+                        switch (nome) {
+                            case "numero":
+                                if (!validarTipo(0, valor)) alert(id.toUpperCase() + " inválido(a). Informe apenas números");
+                            break;
+                            case "texto":
+                                if (!validarTipo(1, valor)) alert(id.toUpperCase() + " inválido(a). Informe apenas letras");
+                            break;
+                            case "numeroLetras":
+                                if (!validarTipo(2, valor)) alert(id.toUpperCase() + " inválido(a). Informe apenas letras e numeros");
+                            break;
+                        }
+                    }
+                }
+            }
+        </script>
+    </head>
+    <body>
+        <form name="form1">
+            <label>Nome:</label>
+            <input type="text" id="nome" name="texto">
+            
+            <label>Idade:</label>
+            <input type="text" id="idade" name="numero">
+
+            <label>Endereço:</label>
+            <input type="text" id="endereco" name="numeroLetras">
+
+            <label>Sexo:</label>
+            <input type="text" id="sexo" name="texto">
+            
+            <input type="button" value="Validar" onclick="validarCampo()">
+        </form>
+    </body>
+</html>

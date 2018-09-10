@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style>
+            input[type="text"] {
+                width:350px;
+            }
+            label, input[type="text"] {
+                display: block;
+            }
+            .erroTxt {
+               color: red;
+               font-size: 12px;
+               margin-left: 10px
+            }
+            .sucessoTxt {
+                display: none;
+            }
+            .sucessoCaixa {
+                border: 1px solid gray;
+                background-color: white;
+            }
+            .erroCaixa {
+               border: 1px solid red;
+               background-color: rgb(253,232,233);
+            }
+        </style>
+        
+        <script>
+    function validarTipoDado(valor, tipo) {
+        var padrao;
+        switch (tipo) {
+            case "nros": // Apenas numeros
+                padrao = /^\d{1,}$/;
+            break;
+            case "letras": // Apenas letras
+                padrao = /^[a-z]{1,}$/i;
+            break;
+            case "nroLetras": // Apenas letras
+                padrao = /^[a-z0-9,.]{1,}$/i;
+            break;
+        }
+        return padrao.test(valor);
+    }
+            
+    function mudarStatusCampo(idCampo, msg) {
+        document.getElementById("msg_"+idCampo).className = msg+"Txt";
+       document.getElementById(idCampo).className = msg+"Caixa";    
+    }
+    
+    function validarCampos() {
+        var tipo, valor, id, i, qtdInputs = document.getElementsByTagName("input").length;
+        for (i=0; i<qtdInputs; i++) {
+            if (document.getElementsByTagName("input")[i].type=="text") {
+                id = document.getElementsByTagName("input")[i].id;
+                valor = document.getElementsByTagName("input")[i].value;
+                tipo = document.getElementsByTagName("input")[i].name;
+                if ((valor == "") || (!validarTipoDado(valor, tipo)))
+                    document.getElementById("msg_"+id).innerHTML = id.toUpperCase() + " invalido.";
+                else { 
+                    document.getElementById("msg_"+id).innerHTML = "";
+                }
+            }
+        }
+    }
+    function limparCampos() {
+        var id, i, qtdInputs = document.getElementsByTagName("input").length;
+        for (i=0; i<qtdInputs; i++) {
+            if (document.getElementsByTagName("input")[i].type=="text") {
+               id = document.getElementsByTagName("input")[i].id;
+               document.getElementById("msg_"+id).innerHTML = "";
+               document.getElementById(id).className = "sucessoCaixa";
+            }
+        }
+    }
+        </script>
+    </head>
+    <body>
+<form>
+    <label>Nome:<span id="msg_nome"></span></label>
+    <input id="nome" type="text" class="cxTxtSucesso" name="letras">
+    
+    <label>Endereço:<span id="msg_endereco"></span></label>
+    <input id="endereco" type="text" class="cxTxtSucesso" name="nroLetras">
+
+    <label>Idade<span id="msg_idade"></span></label>
+    <input id="idade" type="text" class="cxTxtSucesso" name="nros">
+
+    <label>Sexo<span id="msg_sexo"></span></label>
+    <input id="sexo" type="text" class="cxTxtSucesso" name="letras">
+    
+    <input type="button" value="Conferir" onclick="validarCampos()">
+    <input type="reset" value="Limpar" onclick="limparCampos()">
+</form>
+    </body>
+</html>

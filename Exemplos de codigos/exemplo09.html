@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <script>
+    function dobrarValor(valor) {
+      valor.valor = 2;
+    }
+    function dobrarVetor(vet) {
+      for (valor in vet)
+        vet[valor] *= 2;
+    }
+    function inicio2() {
+      var x = {};
+      dobrarValor(x);
+      //x = [1,2,3]
+      //dobrarVetor(x);
+      document.write(x.valor);
+    }
+    /*
+    /*function dobrarVetor(vet) {
+      for (valor in vet)
+        vet[valor] *= 2;
+    }
+    function imprimir() {
+      document.write(x+"<br>");
+    }
+    function inicio2() {
+      x = [1,2,3,4]
+      y = x;
+      dobrarVetor(x)
+      imprimir();
+      //imprimir(y);
+    }*/
+    
+    
+   /* function valor() {
+      wilton = 10
+    }
+    function inicio2() {
+      var x = 10;
+      y = 20;
+      
+      //valor()
+      console.log(delete x)
+      console.log(delete y)
+      console.log(typeof(x))
+      console.log(typeof(y))
+      /*wilton = 20
+      console.log(wilton)
+      document.write(window["wilton"]);
+      valor()
+      console.log(wilton)
+      document.write(window["wilton"]);
+    }
+    */
+    /*var x = 10;
+    
+    function inicio2() {
+      var x;
+      document.write(x)
+      x =  20;
+      document.write(x)
+    }*/
+    
+    
+  </script>
+</head>
+<body onload="inicio2()">
+
+  
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+

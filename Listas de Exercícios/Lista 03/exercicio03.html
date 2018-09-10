@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+      h1, h2 {
+        text-align: center;
+      }
+    </style>
+    <script>
+      document.write("<h1>JOGUE TRUCO</h1><h3>Cartas sorteadas</h3>");
+      
+      nroCartas = 27;
+      baralho = []
+      for (i=0; i<nroCartas; i++)
+        baralho[i] = i+1;
+      
+      for (j=0; j<4; j++) {
+        document.write("<div><p>Jogador "+(j+1)+"</p>");
+        for (c = 0; c < 3; c++)
+          document.write("<img src='cartas/carta" + baralho.splice(Math.round(Math.random()*(baralho.length - 1)),1) + ".png'>")
+        document.write("</div>")
+      }
+    </script>
+</head>
+
+<body>
+</body>
+
+</html>

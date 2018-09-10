@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <style>
+    .box {
+      background-color: yellow;
+      border: 1px solid red;
+      width: 400px;
+      height: 400px;
+      margin: auto;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  </style>
+  <script>
+    function mudarCor() {
+      document.getElementById("caixa").style.backgroundColor="green";
+      document.getElementById("caixa").stile.color="white";
+      document.getElementById("caixa").style.width="300px";
+      
+      
+    }
+  </script>
+</head>
+<body>
+  <form>
+    <input type="button" value="Mudar cor" onclick="mudarCor()">
+  </form>
+  <div class="box" id="caixa">
+    Wilton Filho
+  </div>  
+</body>
+</html>

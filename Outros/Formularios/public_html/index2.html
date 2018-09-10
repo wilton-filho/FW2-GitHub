@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style>
+            input[type="text"] {
+                width:350px;
+            }
+            label, input[type="text"] {
+                display: block;
+            }
+            .erroTxt {
+               color: red;
+               font-size: 12px;
+               margin-left: 10px
+            }
+            .sucessoTxt {
+                display: none;
+            }
+            .sucessoCaixa {
+                border: 1px solid gray;
+                background-color: white;
+            }
+            .erroCaixa {
+               border: 1px solid red;
+               background-color: rgb(253,232,233);
+            }
+        </style>
+        <script>
+    function mudarStatusCampo(idCampo, msg) {
+        document.getElementById("msg_"+idCampo).className = msg+"Txt";
+       document.getElementById(idCampo).className = msg+"Caixa";    
+    }
+    function validarCampos() {
+        var nome = document.getElementById("nome").value;
+        var endereco = document.getElementById("endereco").value;
+        
+        if (nome == "") {
+            document.getElementById("msg_nome").innerHTML = "(Nome em branco. Informe pelo menos uma letra)";
+            mudarStatusCampo('nome','erro');
+        }
+        else mudarStatusCampo('nome','sucesso');
+        
+        if (endereco == "") {
+            document.getElementById("msg_endereco").innerHTML = "(Endereço em branco. Informe pelo menos uma letra)";
+            mudarStatusCampo('endereco','erro');
+        }
+        else mudarStatusCampo('endereco','sucesso');
+    }
+        </script>
+    </head>
+    <body>
+<form>
+    <label>Nome:<span id="msg_nome"></span></label>
+    <input id="nome" type="text" class="cxTxtSucesso">
+    
+    <label>Endereço:<span id="msg_endereco"></span></label>
+    <input id="endereco" type="text" class="cxTxtSucesso">
+    
+    <input type="button" value="Conferir" onclick="validarCampos()">
+</form>
+    </body>
+</html>

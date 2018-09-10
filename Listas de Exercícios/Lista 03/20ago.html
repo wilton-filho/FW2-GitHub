@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    
+    <script>
+    //Enchendo o vetor de opções de numeros MEGA-SENA
+        
+    pool = new Array(60);
+    alert(pool.length);
+    ganhador = new Array(6);
+        
+        for (i=0; i<60; i++) {
+            pool[i] = eval(i+1);
+            
+        }
+           
+    // rodando numeros
+        for (i=0; i <6; i++) {
+            
+            pos = Math.round(Math.random()*((pool.length)-1));
+            ganhador[i] = pool[pos];
+            
+            pool.splice(pos,1);
+            alert(pool.length);
+            
+        }
+        
+        ganhador.sort(function(a, b){return a-b});
+        
+        document.write("Os numeros ganhadores são: "+ganhador[0]+", "+ganhador[1]+", "+ganhador[2]+", "+ganhador[3]+", "+ganhador[4]+" e "+ganhador[5]+".");
+        
+        
+    </script>
+    
+    
+</head>
+<body>
+    
+</body>
+</html>

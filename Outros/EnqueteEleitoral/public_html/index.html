@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style>
+            p {
+                text-align:center
+            }
+            .caixaCandidato {
+                float:left;
+                width:161px;
+                border:1px solid black;
+            }
+        </style>
+        <script src="JS/validarCPF.js" type="text/javascript"></script>
+<script>
+    // Vetor contendo os CPFs dos eleitores que ja votaram
+    var g_CPFs = new Array();
+
+    // Valida o CPF e registra o voto do eleitor no painel
+    function registrarVoto(idCand) {
+        var cpf = prompt("Informe o seu CPF (sem ponto e traço):");
+        if (validarCPF(cpf)) { // CPF valido?
+            if (g_CPFs.indexOf(cpf) == -1) { // CPF não existe?
+                g_CPFs.push(cpf); // Cadastra cpf ainda nao utilizado
+                alert("CPF registrado com sucesso!");
+                // Guarda o CPF na sessao
+                localStorage.g_CPFs = g_CPFs.join("-");
+                // Atualiza o painel de votos
+                document.getElementById("votoCand"+idCand).innerHTML++;
+            }
+            else 
+                alert("Este CPF já foi utilizado. Tente um CPF diferente!")
+        }
+        else 
+            alert("CPF inválido");
+    }
+    function lerCPFsSessao() {
+        //localStorage.removeItem("g_CPFs")
+        g_CPFs = localStorage.g_CPFs;
+        if (g_CPFs === undefined) {
+           alert("Sem CPF cadastrado!")
+           g_CPFs = [];
+       }
+       else g_CPFs = g_CPFs.split("-");
+    }
+</script>
+    </head>
+    <body onload="lerCPFsSessao()">
+        <div class="caixaCandidato">
+            <img src="Imagens/odelmo1.jpg" alt="" onclick="registrarVoto(1)">
+            <p id="votoCand1">0</p>
+        </div>
+        <div class="caixaCandidato">
+            <img src="Imagens/gilmar1.jpg" alt="" onclick="registrarVoto(2)">
+            <p id="votoCand2">0</p>
+        </div>
+        <div class="caixaCandidato">
+            <img src="Imagens/gilberto1.jpg" alt="" onclick="registrarVoto(3)">
+            <p id="votoCand3">0</p>
+        </div>
+        <div class="caixaCandidato">
+            <img src="Imagens/cida1.jpg" alt="" onclick="registrarVoto(4)">
+            <p id="votoCand4">0</p>
+        </div>
+        <div class="caixaCandidato">
+            <img src="Imagens/alexandre1.jpg" alt="" onclick="registrarVoto(5)">
+            <p id="votoCand5">0</p>
+        </div>
+    </body>
+</html>

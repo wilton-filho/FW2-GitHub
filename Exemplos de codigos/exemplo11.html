@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <script>
+    function gerarMatriz(nroLinhas, nroColunas) {
+      var matriz = new Array(nroLinhas); // Nro de linhas
+      for (var i=0; i<nroLinhas; i++)
+        matriz[i] = new Array(nroColunas); //Nro de colunas
+      return matriz;
+    }
+    
+    function alimentarMatriz(matriz){
+      // Alimentar a tabela
+      var vet = [1,1]
+      for (var linha=0; linha<matriz.length; linha++)
+        for (var coluna=0; coluna<matriz[0].length; coluna++)
+          matriz[linha][coluna] = contador++;
+    }
+    
+    function imprimirMatriz(matriz) {
+      //Imprimir a tabela
+      for (var linha=0; linha<matriz.length; linha++)
+        document.write(matriz[linha]+"<br>");
+    }
+    
+    function getTamJogo() {
+      var nroCartas = prompt("Quantas cartinhas vc quer jogar?");
+      return nroCartas;
+    }
+    
+    function iniciar() {
+      var nroCartas = parseInt(getTamJogo());
+      var matriz = gerarMatriz(2,nroCartas);
+      alimentarMatriz(matriz);
+      imprimirMatriz(matriz);
+    }
+      
+  </script>
+</head>
+<body onload="iniciar()">
+
+  
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+

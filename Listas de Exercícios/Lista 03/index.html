@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <script>
+    var cartas = new Array(27);
+    tamanho = cartas.length;
+    // Criando uma representacao das cartas em Javascript
+    for (i=0; i<tamanho; i++)
+      cartas[i] = i+1;
+    for (i=0; i<4; i++) {
+      document.write("<p>Cartas do Jogador "+(i+1)+":</p>");
+      for (j=1; j<4; j++) {
+        indiceCarta = Math.round(Math.random()*(cartas.length-1));
+        document.write("<img src='cartas/carta"+cartas.splice(indiceCarta, 1)+".png'>");
+      }
+    }
+  </script>
+</head>
+<body>
+  
+</body>
+</html>

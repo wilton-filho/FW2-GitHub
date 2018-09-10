@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+   <script>
+     txt = prompt("Digite um texto: ");
+     palavras = txt.split(' ').sort();
+     tamanho = palavras.length
+     
+     
+     for (i=0; i<tamanho; i++) {
+       letra = palavras[i].charAt(0);
+       document.write("<p>Palavras iniciadas com a letra "+letra+":</p><ul>");
+       for (j=i; j<tamanho; j++) {
+         if (palavras[j].charAt(0).toUpperCase() == letra.toUpperCase())
+           document.write("<li>"+palavras[j]+"</li>");
+         else break;
+       }
+       i = j-1;
+       document.write("</ul>");
+     }
+      
+  </script>
+</head>
+<body>
+
+  
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <style>
+    table {
+      text-align: center;
+      width: 300px;
+      margin: auto;
+    }
+    table td {
+      height: 100px;
+    }
+    table td:hover {
+      background-color: #cccccc;
+    }
+  </style>
+  <script>
+    
+    // Gera a matriz contendo todas as cartas do tabuleiro embaralhadas.
+    function gerarMatrizTabuleiro(nroCartas) {
+      var tabuleiro = new Array(nroCartas)
+      for (i=0; i<nroCartas; i++) tabuleiro[i] = new Array(nroCartas);
+      
+      var cartas = carregarCartas(nroCartas);
+      
+      for (linha=0; linha<nroCartas; linha++)
+        for (coluna=0; coluna<nroCartas; coluna++)
+          tabuleiro[linha][coluna] = cartas.splice(Math.round(Math.random()*(cartas.length-1)));
+      
+      return tabuleiro;
+    }
+    
+    // Retorna um vetor contendo todas as cartas que serao utlizadas no jogo da memoria
+    // Retorno: vetor contendo todas as cartar
+    function carregarCartas(nroCartas) {
+      var cartas = new Array(nroCartas*nroCartas);
+      for (i=0; i<nroCartas*nroCartas; i++) cartas[i] = i+1;
+      return cartas;
+    }
+    
+    function exibirTabuleiro(nroCartas) {
+      var tabuleiro = gerarMatrizTabuleiro(nroCartas);
+      
+      document.write("<table border='1'>")
+      for (l=0; l<nroCartas; l++) {
+        document.write("<tr>");
+        for (c=0; c<nroCartas; c++) 
+          document.write("  <td><img src='cartas/carta"+tabuleiro[l][c]+".png'></td>");
+        document.write("</tr>");
+      }    
+      document.write("</table>")
+    }
+    
+    function lerTamTabuleiro() {
+      var nroCartas = prompt("Quantas cartas (3 a 10)?")
+      return nroCartas;
+    }
+  
+    function iniciarJogo() {
+      var nroCartas = lerTamTabuleiro();
+      exibirTabuleiro(nroCartas);
+    }
+    
+  </script>
+</head>
+<body onload="iniciarJogo()">
+  
+  
+</body>
+</html>
+
+
+
+
+
+
+    
