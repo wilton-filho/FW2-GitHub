@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <script src="calculcadora.js"></script>
+  <script>
+    function calcular(operador) {
+      var valor1 = document.getElementById('txtOperando1').value;
+      var valor2 = document.getElementById('txtOperando2').value;
+      var calc = new Calculadora(valor1, valor2);
+      switch(operador) {
+        case '+':
+          resultado = calc.somar();
+        break;
+        case '-':
+          resultado = calc.subtrair();
+        break;
+        case '*':
+          resultado = calc.multiplicar();
+        break;
+        case '/':
+          resultado = calc.dividir();
+        break;
+      }
+      document.getElementById('txtResultado').value = resultado;
+    }    
+  </script>
+
+</head>
+<body>
+  <form>
+    <label>Valor 1:</label>
+    <input type="text" id="txtOperando1"><br>
+    <label>Valor 2:</label>
+    <input type="text" id="txtOperando2"><br>
+    
+    <input type="button" onclick="calcular('+')" value="+">
+    <input type="button" onclick="calcular('-')" value="-">
+    <input type="button" onclick="calcular('*')" value="*">
+    <input type="button" onclick="calcular('/')" value="/"><br>
+    
+    <label>Resultado:</label>
+    <input type="text" id="txtResultado"><br>
+  </form>
+</body>
+</html>

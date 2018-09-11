@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <style>
+    input[type="button"] {
+      width:100px;
+      background-color: blue;
+      color:white;
+      padding:10px;
+      border:none;
+      border-radius: 10px;
+      transition: all 0.2s;
+    }
+    input[type="button"]:hover {
+      cursor: pointer;
+      box-shadow: 2px 2px 2px gray;
+      /*transform: rotate(360deg);*/
+      background-color: green;
+    }
+    input[type="button"]:active {
+      transform: scale(0.9);
+    }
+  </style>
+  <script>
+    function acelerar() {
+      var velocidade;
+      velocidade = parseInt(document.getElementById('txtVelocidade').value);
+      if (velocidade < 300) {
+        velocidade += 5;
+        document.getElementById('txtVelocidade').value = velocidade;
+      }
+      else alert('Vc ja atingiu a vel max')
+    }  
+    function frear() {
+      var velocidade;
+      velocidade = parseInt(document.getElementById('txtVelocidade').value);
+      if (velocidade > 0) {
+        velocidade -= 5;
+        document.getElementById('txtVelocidade').value = velocidade;
+      }
+      else alert('O carro ja esta parado, porque frear???')
+    } 
+  </script>
+</head>
+<body>
+  <form>
+    <input type="button" value="Acelerar" onclick="acelerar()">
+    <input type="button" value="Frear" onclick="frear()">
+    <input type="text" id="txtVelocidade">
+  </form>  
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+

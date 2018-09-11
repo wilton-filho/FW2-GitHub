@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <script>
+    function Carro(nroRodas, nroPortas, combustivel, velocidade) {
+      this.nroRodas = nroRodas;
+      this.nroPortas = nroPortas;
+      this.combustivel = combustivel;
+      this.velocidade = velocidade;
+      this.acelerar = function(x) {
+        this.velocidade = this.velocidade + x;
+      }
+      this.frear = function(x) {
+        this.velocidade = this.velocidade - x;
+      }
+      this.verPerfil = function() {
+        document.write("Número de rodas = "+this.nroRodas+"<br>");
+        document.write("Número de portas = "+this.nroPortas+"<br>");
+        document.write("Combustível utilizado = "+this.combustivel+"<br>");
+        document.write("Velocidade atual = "+this.velocidade+"<br>");
+      }
+    };
+    var chevet = new Carro(5,3,"Gasolina",100);
+    /*chevet.nroRodas = 5;
+    chevet.nroPortas = 3;
+    chevet.combustivel = "Gasolina";
+    chevet.velocidade = 100;*/
+    chevet.verPerfil();
+    chevet.acelerar(20);
+    chevet.verPerfil();
+    
+    /*var prius = new Carro();
+    prius.nroRodas = 5;
+    prius.nroPortas = 5;
+    prius.combustivel = "Flex";
+    prius.velocidade = 120;
+    prius.verPerfil();*/
+  </script>
+</head>
+<body>
+  
+</body>
+</html>
